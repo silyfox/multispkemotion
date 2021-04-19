@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Demo for paper: Towards the disentanglement, transfer and strength control for emotion in end-to-end speech synthesis</title>
+</head>
+<body>
+<h1 id="Demo for paper" style="font-size:30px"><center> Controllable Emotion Transfer For End-to-End Speech Synthesis </center></h1>
+<h2 id="abstract">Abstract:</h2>
+<div style="text-align: justify">In this paper, we discussed emotion transfer and strength control in the cross-speaker scenario, which aims to capture the emotional representation from the references of the source speaker and transfer it to the target speaker who does not have emotional data, so that it can express various emotions with different strengths. However, the current methods made a compromise on the quality of emotion transfer, either transferred emotion in the synthetic speech is not expressive enough, or there is often suffering from the source speaker leakage, which impairs the timbre identity of the target speaker. Moreover, it is hard to select the appropriate reference to flexibly perform different emotion strengths by the target speaker while ensuring the model robust to source speaker leakage. To solve the above issues, we use the same-speaker model proposed before as the backbone and improve it to disentangling emotion expression and speaker's timbre base on multi-reference structure combined with domain separation and adversarial training (DAT). Specifically, we designed a speaker subspace learning network with a gradient reversal layer, which is used to expand the emotion embedding network and auxiliary learning network to learn emotion-independent speaker representations from the mel-spectrum. And then, the orthogonality loss is used between the speaker representation and the emotion embedding to obtain the speaker-independent emotion embedding. Finally, we adopt style loss to measure the difference of speaker-independent emotion embedding between the generated and reference mel-spectrum. The emotion strength in the synthetic speech can be controlled by adjusting the value of the emotion embedding as the emotion embedding can be viewed as the feature map of the mel-spectrum. Experiments and objective analysis have shown that the speech synthesized by our method not only ensures the stability of the target speaker's timbre characteristics but also enriches transferred emotional expression. The emotion strength controlled by the new speaker is more salient to listeners. As far as we know, this is the first study to transferring emotion across speakers while control emotion strength.</div>
+</div>
+<p><br /></p>
+<h4>1. The architecture of the proposed model: </h4>
+<center><p><img src="multspk_emo_control_GRL.png" alt="arch" /></p> </center>
+<h4>2. Demo of style transfer for emotional TTS : </h4>
+<blockquote>
+<table border=1>
+<div style="text-align: justify">To facilitate fair comparison, we use the same text to synthesize speech in six emotions. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is (in Chinese): 让那些小主顾们等一等到吧。 </div>
+<tr>
+<td align="center"><span>emotion</span></td>
+<td align="center"><span>Reference audio</span></td>
+<td align="center"><span>Prosody Tacotron</span></td>
+<td align="center"><span>+ L<sub>cls_src</sub><span></td>
+<td align="center"><span>+ L<sub>cls_tgt</sub><span></td>
+<td align="center"><span>+  L<sub>cls_src</sub> + L<sub>cls_tgt</sub><span></td>
+<td align="center"><span>L<sub>total</sub><span></td>
+</tr>
+<tr>
+<td>surprise</td>
+<td><audio controls><source src="samples/original/210498.wav"></audio></td>
+<td><audio controls><source src="samples/refnet/101020-21-Mref.wav"></audio></td>
+<td><audio controls><source src="samples/nodencl/101020-21-Mnd.wav"></audio></td>
+<td><audio controls><source src="samples/noencl/101020-21-noencl.wav"></audio></td>
+<td><audio controls><source src="samples/nogram/101020-21-Mng.wav"></audio></td>
+<td><audio controls><source src="samples/gram/101020-21-M.wav"></audio></td>
+</tr>
+<tr>
+<td>happy</td>
+<td><audio controls><source src="samples/original/220184.wav"></audio></td>
+<td><audio controls><source src="samples/refnet/101020-22-Mref.wav"></audio></td>
+<td><audio controls><source src="samples/nodencl/101020-22-Mnd.wav"></audio></td>
+<td><audio controls><source src="samples/noencl/101020-22-noencl.wav"></audio></td>
+<td><audio controls><source src="samples/nogram/101020-22-Mng.wav"></audio></td>
+<td><audio controls><source src="samples/gram/101020-22-M.wav"></audio></td>
+</tr>
+<tr>
+<td>sad</td>
+<td><audio controls><source src="samples/original/230233.wav"></audio></td>
+<td><audio controls><source src="samples/refnet/101020-23-Mref.wav"></audio></td>
+<td><audio controls><source src="samples/nodencl/101020-23-Mnd.wav"></audio></td>
+<td><audio controls><source src="samples/noencl/101020-23-noencl.wav"></audio></td>
+<td><audio controls><source src="samples/nogram/101020-23-Mng.wav"></audio></td>
+<td><audio controls><source src="samples/gram/101020-23-M.wav"></audio></td>
+</tr>
+<tr>
+<td>angry</td>
+<td><audio controls><source src="samples/original/240639.wav"></audio></td>
+<td><audio controls><source src="samples/refnet/101020-24-Mref.wav"></audio></td>
+<td><audio controls><source src="samples/nodencl/101020-24-Mnd.wav"></audio></td>
+<td><audio controls><source src="samples/noencl/101020-24-noencl.wav"></audio></td>
+<td><audio controls><source src="samples/nogram/101020-24-Mng.wav"></audio></td>
+<td><audio controls><source src="samples/gram/101020-24-M.wav"></audio></td>                                                 
+</tr>
+<tr> 
+<td>disgust</td>
+<td><audio controls><source src="samples/original/250564.wav"></audio></td>
+<td><audio controls><source src="samples/refnet/101020-25-Mref.wav"></audio></td>
+<td><audio controls><source src="samples/nodencl/101020-25-Mnd.wav"></audio></td>
+<td><audio controls><source src="samples/noencl/101020-25-noencl.wav"></audio></td>
+<td><audio controls><source src="samples/nogram/101020-25-Mng.wav"></audio></td>
+<td><audio controls><source src="samples/gram/101020-25-M.wav"></audio></td> 
+</tr>
+<tr>
+<td>fear</td>
+<td><audio controls><source src="samples/original/260554.wav"></audio></td>
+<td><audio controls><source src="samples/refnet/101020-26-Mref.wav"></audio></td>
+<td><audio controls><source src="samples/nodencl/101020-26-Mnd.wav"></audio></td>
+<td><audio controls><source src="samples/noencl/101020-26-noencl.wav"></audio></td>
+<td><audio controls><source src="samples/nogram/101020-26-Mng.wav"></audio></td>
+<td><audio controls><source src="samples/gram/101020-26-M.wav"></audio></td> 
+</tr>
+</table>
+<br/>
+</blockquote>
+<h4>3. Demo of emotion strength control in emotional TTS : </h4>
+<blockquote>
+<table border=1>
+<div style="text-align: justify"> To facilitate fair comparison, we use the same text to synthesize speech in six emotions and three strengths. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is (in Chinese): 让那些小主顾们等一等到吧。 </div>
+<tr>
+<td align="center"><span>emotion</span></td>
+<td align="center"><span>RA-Tacotron (Low)</span></td>
+<td align="center"><span> proposed (Low)<span></td>
+<td align="center"><span>RA-Tacotron (Medium)</span></td>
+<td align="center"><span>proposed (Medium)<span></td>
+<td align="center"><span>RA-Tacotron (Strong)</span></td>
+<td align="center"><span>proposed (Strong)<span></td>
+</tr>
+<tr>
+<td>surprise</td>
+<td><audio controls><source src="samples/strength_control/ra/101020-surprise-L-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-21-L.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-surprise-M-ra.wav"></audio></td> 
+<td><audio controls><source src="samples/strength_control/o3_3/101020-21-M.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-surprise-H-ra.wav"></audio></td>           
+<td><audio controls><source src="samples/strength_control/o3_3/101020-21-H.wav"></audio></td>
+</tr>
+<tr>
+<td>happy</td>
+<td><audio controls><source src="samples/strength_control/ra/101020-happy-L-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-22-L.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-happy-M-ra.wav"></audio></td> 
+<td><audio controls><source src="samples/strength_control/o3_3/101020-22-M.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-happy-H-ra.wav"></audio></td> 
+<td><audio controls><source src="samples/strength_control/o3_3/101020-22-H.wav"></audio></td>
+</tr>
+<tr>
+<td>sad</td>                                                                                                                    
+<td><audio controls><source src="samples/strength_control/ra/101020-sad-L-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-23-L.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-sad-M-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-23-M.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-sad-H-ra.wav"></audio></td>              
+<td><audio controls><source src="samples/strength_control/o3_3/101020-23-H.wav"></audio></td>
+</tr>
+<tr>
+<td>angry</td>                                                                                                                    
+<td><audio controls><source src="samples/strength_control/ra/101020-angry-L-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-24-L.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-angry-M-ra.wav"></audio></td> 
+<td><audio controls><source src="samples/strength_control/o3_3/101020-24-M.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-angry-H-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-24-H.wav"></audio></td>
+</tr>
+<tr>
+<td>disgust</td>                                               
+<td><audio controls><source src="samples/strength_control/ra/101020-disgust-L-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-25-L.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-disgust-M-ra.wav"></audio></td> 
+<td><audio controls><source src="samples/strength_control/o3_3/101020-25-M.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-disgust-H-ra.wav"></audio></td>  
+<td><audio controls><source src="samples/strength_control/o3_3/101020-25-H.wav"></audio></td>
+</tr>
+<tr>
+<td>fear</td>                                                                                 
+<td><audio controls><source src="samples/strength_control/ra/101020-fear-L-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-26-L.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-fear-M-ra.wav"></audio></td> 
+<td><audio controls><source src="samples/strength_control/o3_3/101020-26-M.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/ra/101020-fear-H-ra.wav"></audio></td>
+<td><audio controls><source src="samples/strength_control/o3_3/101020-26-H.wav"></audio></td>
+</table>
+<br/>
+</blockquote>
