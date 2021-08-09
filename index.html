@@ -18,6 +18,7 @@
 <center><p><img src="multspk_emo_control_wxs.png" alt="arch" /></p> </center>
 <div style="text-align: justify">The architecture of the proposed cross-speaker model. The input text is represented as the phone sequence, and speech is represented by Mel-spectrogram which can be converted to waveform signal via a vocoder. The input ``Mel" is from reference audio to provide the speaker-independent emotion embedding via the emotion encoder. Two EDMs are just used during the training processing, and only the emotion encoder with ``Mel" as input is kept during the inference.</div>
 <h4>2. style transfer for comparison with other methods : </h4>
+<blockquote>
 <table border=1>
 <div style="text-align: justify">To facilitate fair comparison, we use the same text to synthesize speech in six emotions. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is : 让那些小主顾们等一等到吧 (Let the little patrons wait). </div>
 <tr>
@@ -77,7 +78,10 @@
 <td><audio controls><source src="demo/vae/101020-21.wav"></audio></td>
 </tr>
 </table>
+<br/>
+<blockquote>
 <h4>3. style transfer for ablation studies: </h4>
+<blockquote>
 <table border=1>
 <div style="text-align: justify">To facilitate fair comparison, we use the same text to synthesize speech in six emotions. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is : 让那些小主顾们等一等到吧 (Let the little patrons wait). </div>
 <tr>
@@ -137,7 +141,10 @@
 <td><audio controls><source src="demo/proposed/101020-21.wav"></audio></td>
 </tr>
 </table>
+<br/>
+<blockquote>
 <h4>4. emotion strength control in cross-speaker emotional TTS : </h4>
+<blockquote>
 <table border=1>
 <div style="text-align: justify"> To facilitate fair comparison, we use the same text to synthesize speech in six emotions and three strengths. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is : 让那些小主顾们等一等到吧 (Let the little patrons wait).</div>
 <tr>
@@ -197,3 +204,4 @@
 <td><audio controls><source src="demo/strength_spk/high/101020-21.wav"></audio></td>
 </table>
 <br/>
+</blockquote>
