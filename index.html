@@ -17,7 +17,6 @@
 <h4>1. The architecture of the proposed model: </h4>
 <center><p><img src="multspk_emo_control_wxs.png" alt="arch" /></p> </center>
 <div style="text-align: justify">The architecture of the proposed cross-speaker model. The input text is represented as the phone sequence, and speech is represented by Mel-spectrogram which can be converted to waveform signal via a vocoder. The input ``Mel" is from reference audio to provide the speaker-independent emotion embedding via the emotion encoder. Two EDMs are just used during the training processing, and only the emotion encoder with ``Mel" as input is kept during the inference.</div>
-<tr>
 <h4>2. style transfer for comparison with other methods : </h4>
 <blockquote>
 <table border=1>
@@ -78,7 +77,6 @@
 <td><audio controls><source src="demo/gst/101020-21.wav"></audio></td>
 <td><audio controls><source src="demo/vae/101020-21.wav"></audio></td>
 </table>
-<br/>
 <blockquote>
 <h4>3. style transfer for ablation studies: </h4>
 <blockquote>
@@ -140,7 +138,6 @@
 <td><audio controls><source src="demo/enc_bndat/101020-21.wav"></audio></td>
 <td><audio controls><source src="demo/proposed/101020-21.wav"></audio></td>
 </table>
-<br/>
 <blockquote>
 <h4>4. emotion strength control in cross-speaker emotional TTS : </h4>
 <blockquote>
