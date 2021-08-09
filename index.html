@@ -16,7 +16,7 @@
 <p><br /></p>
 <h4>1. The architecture of the proposed model: </h4>
 <center><p><img src="multspk_emo_control_wxs.png" alt="arch" /></p> </center>
-<div style="text-align: justify">The architecture of the cross-speaker model is proposed, which is an extension of Tacotron2, in which the EDM module is used to extract speaker-independent emotion embedding, EDM for explicit constraint is used to constrain the speaker and emotion of the synthesis spectrum, and speaker identity controller is used to control the identity of the speaker.</div>
+<div style="text-align: justify">The architecture of the proposed cross-speaker model. The input text is represented as the phone sequence, and speech is represented by Mel-spectrogram which can be converted to waveform signal via a vocoder. The input ``Mel" is from reference audio to provide the speaker-independent emotion embedding via the emotion encoder. Two EDMs are just used during the training processing, and only the emotion encoder with ``Mel" as input is kept during the inference.</div>
 <tr>
 <h4>2. style transfer for comparison with other methods : </h4>
 <blockquote>
