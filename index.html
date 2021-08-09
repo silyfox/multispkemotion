@@ -16,10 +16,10 @@
 <p><br /></p>
 <h4>1. The architecture of the proposed model: </h4>
 <center><p><img src="multspk_emo_control_wxs.png" alt="arch" /></p> </center>
-<h4>2. Demo of style transfer for cross-speaker emotional TTS : </h4>
+<h4>2. style transfer for cross-speaker emotional TTS : </h4>
 <blockquote>
 <table border=1>
-<div style="text-align: justify">To facilitate fair comparison, we use the same text to synthesize speech in six emotions. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is (in Chinese): 让那些小主顾们等一等到吧。 </div>
+<div style="text-align: justify">To facilitate fair comparison, we use the same text to synthesize speech in six emotions. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is : 让那些小主顾们等一等到吧 (Let the little patrons wait)。 </div>
 <tr>
 <td align="center"><span>emotion</span></td>
 <td align="center"><span>Emotion reference audio</span></td>
@@ -31,44 +31,14 @@
 <td align="center"><span>Mspk-vae</sub><span></td>
 </tr>
 <tr>
-<td>surprise</td>
-<td><audio controls><source src="demo/ref_emo/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/grambnf/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/enc_bndat/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/proposed/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/gst/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/vae/101020-21.wav"></audio></td>
-</tr>
-<tr>
-<td>happy</td>
-<td><audio controls><source src="demo/ref_emo/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/grambnf/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/enc_bndat/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/proposed/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/gst/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/vae/101020-22.wav"></audio></td>
-</tr>
-<tr>
-<td>sad</td>
-<td><audio controls><source src="demo/ref_emo/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/grambnf/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/enc_bndat/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/proposed/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/gst/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/vae/101020-23.wav"></audio></td>
-</tr>
-<tr>
-<td>angry</td>
-<td><audio controls><source src="demo/ref_emo/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/grambnf/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/enc_bndat/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/proposed/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/gst/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/vae/101020-24.wav"></audio></td>
+<td>fear</td>
+<td><audio controls><source src="demo/ref_emo/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/grambnf/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/enc_bndat/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/proposed/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/gst/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/vae/101020-26.wav"></audio></td>
 </tr>
 <tr> 
 <td>disgust</td>
@@ -81,22 +51,51 @@
 <td><audio controls><source src="demo/vae/101020-25.wav"></audio></td>
 </tr>
 <tr>
-<td>fear</td>
-<td><audio controls><source src="demo/ref_emo/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/grambnf/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/enc_bndat/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/proposed/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/gst/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/vae/101020-26.wav"></audio></td>
+<td>angry</td>
+<td><audio controls><source src="demo/ref_emo/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/grambnf/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/enc_bndat/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/proposed/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/gst/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/vae/101020-24.wav"></audio></td>
 </tr>
+<tr>
+<td>sad</td>
+<td><audio controls><source src="demo/ref_emo/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/grambnf/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/enc_bndat/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/proposed/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/gst/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/vae/101020-23.wav"></audio></td>
+</tr>
+<tr>
+<td>happy</td>
+<td><audio controls><source src="demo/ref_emo/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/grambnf/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/enc_bndat/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/proposed/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/gst/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/vae/101020-22.wav"></audio></td>
+</tr>
+<tr>
+<td>surprise</td>
+<td><audio controls><source src="demo/ref_emo/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/grambnf/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/enc_bndat/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/proposed/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/gst/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/vae/101020-21.wav"></audio></td>
 </table>
 <br/>
 </blockquote>
-<h4>3. Demo of emotion strength control in cross-speaker emotional TTS : </h4>
+<h4>3. emotion strength control in cross-speaker emotional TTS : </h4>
 <blockquote>
 <table border=1>
-<div style="text-align: justify"> To facilitate fair comparison, we use the same text to synthesize speech in six emotions and three strengths. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is (in Chinese): 让那些小主顾们等一等到吧。 </div>
+<div style="text-align: justify"> To facilitate fair comparison, we use the same text to synthesize speech in six emotions and three strengths. This may let the listeners more focused on the emotion delivered in the acoustic aspects. The text is : 让那些小主顾们等一等到吧。(Let the little patrons wait) </div>
 <tr>
 <td align="center"><span>emotion</span></td>
 <td align="center"><span>Emotion reference audio</span></td>
@@ -106,36 +105,12 @@
 <td align="center"><span>Proposed (Strong)<span></td>
 </tr>
 <tr>
-<td>surprise</td>
-<td><audio controls><source src="demo/ref_emo/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-21.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-21.wav"></audio></td>
-</tr>
-<tr>
-<td>happy</td>
-<td><audio controls><source src="demo/ref_emo/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-22.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-22.wav"></audio></td>
-</tr>
-<tr>
-<td>sad</td>                                                                                                                    
-<td><audio controls><source src="demo/ref_emo/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-23.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-23.wav"></audio></td>
-</tr>
-<tr>
-<td>angry</td>                                                                                                                    
-<td><audio controls><source src="demo/ref_emo/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-24.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-24.wav"></audio></td>
+<td>fear</td>                                                                                 
+<td><audio controls><source src="demo/ref_emo/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-26.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-26.wav"></audio></td>
 </tr>
 <tr>
 <td>disgust</td>                                               
@@ -146,12 +121,36 @@
 <td><audio controls><source src="demo/strength_spk/high/101020-25.wav"></audio></td>
 </tr>
 <tr>
-<td>fear</td>                                                                                 
-<td><audio controls><source src="demo/ref_emo/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-26.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-26.wav"></audio></td>
+<td>angry</td>                                                                                                                    
+<td><audio controls><source src="demo/ref_emo/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-24.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-24.wav"></audio></td>
+</tr>
+<tr>
+<td>sad</td>                                                                                                                    
+<td><audio controls><source src="demo/ref_emo/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-23.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-23.wav"></audio></td>
+</tr>
+<tr>
+<td>happy</td>
+<td><audio controls><source src="demo/ref_emo/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-22.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-22.wav"></audio></td>
+</tr>
+<tr>
+<td>surprise</td>
+<td><audio controls><source src="demo/ref_emo/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-21.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-21.wav"></audio></td>
 </table>
 <br/>
 </blockquote>
