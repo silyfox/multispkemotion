@@ -9,7 +9,7 @@
 <div style="text-align: center">Tao Li, Xinsheng Wang, Qicong Xie, Zhichao Wang, Lei Xie;</div>
 <div style="text-align: center"> Northwestern Polytechnical University</div>
 <div style="text-align: center"> Xi’an Jiaotong University</div>
-<h2 id="abstract">Abstract:</h2>
+<h2 id="abstract">Introduction:</h2>
 <div style="text-align: justify">The cross-speaker emotion transfer task in text-to-speech (TTS) synthesis particularly aims to synthesize speech for a target speaker with the emotion transferred from reference speech recorded by another (source) speaker. During the emotion transfer process, the identity information of the source speaker could also affect the synthesized results, resulting in the issue of speaker leakage, i.e., synthetic speech may have the voice identity of the source speaker rather than the target speaker. In this paper, a new method was proposed with the aim to synthesize controllable emotional expressive speech and meanwhile maintain the target speaker's identity in the cross-speaker emotion TTS task. The proposed method is a Tacotron2-based framework with the emotion embedding as the conditioning variable to provide emotion information. Two emotion disentangling modules are contained in our method to 1) get speaker-independent and emotion-discriminative embedding, and 2) explicitly constrain the emotion and speaker identity of synthetic speech to be that as expected. Moreover, the first effort that to control the transferred emotion strength for cross-speaker emotion transfer has been conducted in this work. Specifically, the learned emotion embedding is adjusted with a flexible scalar value, which allows controlling the emotion strength conveyed by the embedding. Extensive experiments have been conducted on a Mandarin disjoint corpus, and the results demonstrate that the proposed method is able to synthesize reasonable emotional speech for the target speaker. Compared to the state-of-the-art reference embedding learned methods, our method gets the best performance on the cross-speaker emotion transfer task, indicating that our method achieves the new state-of-the-art performance on learning the speaker-independent emotion embedding. Furthermore, the strength ranking test and pitch trajectories plots demonstrate that the proposed method can effectively control the emotion strength, leading to prosody-diverse synthetic speech.</div>
 </div>
 <p><br /></p>
@@ -79,7 +79,68 @@
 </table>
 <br/>
 </blockquote>
-<h4>3. Ablation study </h4>
+<h4>3. Synthesized speech controlled by different emotion strengths: </h4>
+<blockquote>
+<table border=1>
+<div style="text-align: justify"> Following demos present synthetic speech with different emotion strengths (weak, medium, and strong) with the same text as input, i.e., 让那些小主顾们等一等到吧 (Let those little customers wait a while).  The emotion strength is controlled by a flexible emotion scaler with values of 1, 2, and 3. It can be found that strength differences can be successfully reflected by speech controlled by different scalar values, and the speaker leakage issue is not obvious in speech with strong emotions.</div>
+<tr>
+<td align="center"><span>emotion</span></td>
+<td align="center"><span>Emotion reference audio</span></td>
+<td align="center"><span>Target speaker reference audio</span></td>
+<td align="center"><span> Proposed (Weak)<span></td>
+<td align="center"><span>Proposed (Medium)<span></td>
+<td align="center"><span>Proposed (Strong)<span></td>
+</tr>
+<tr>
+<td>fear</td>                                                                                 
+<td><audio controls><source src="demo/ref_emo/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-26.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-26.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-26.wav"></audio></td>
+</tr>
+<tr>
+<td>disgust</td>                                               
+<td><audio controls><source src="demo/ref_emo/101020-25.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-25.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-25.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-25.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-25.wav"></audio></td>
+</tr>
+<tr>
+<td>angry</td>                                                                                                                    
+<td><audio controls><source src="demo/ref_emo/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-24.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-24.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-24.wav"></audio></td>
+</tr>
+<tr>
+<td>sad</td>                                                                                                                    
+<td><audio controls><source src="demo/ref_emo/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-23.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-23.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-23.wav"></audio></td>
+</tr>
+<tr>
+<td>happy</td>
+<td><audio controls><source src="demo/ref_emo/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-22.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-22.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-22.wav"></audio></td>
+</tr>
+<tr>
+<td>surprise</td>
+<td><audio controls><source src="demo/ref_emo/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/ref_spk/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/low/101020-21.wav"></audio></td>
+<td><audio controls><source src="demo/strength_spk/medium/101020-21.wav"></audio></td>           
+<td><audio controls><source src="demo/strength_spk/high/101020-21.wav"></audio></td>
+</table>
+<br/>
+<h4>4. Ablation study </h4>
 <blockquote>
 <table border=1>
 <div style="text-align: justify"> Input text: 让那些小主顾们等一等到吧 (Let those little customers wait a while)</div>
@@ -139,68 +200,6 @@
 <td><audio controls><source src="demo/enc_bndat/101020-21.wav"></audio></td>
 <td><audio controls><source src="demo/proposed/101020-21.wav"></audio></td>
 </tr>
-</table>
-<br/>
-</blockquote>
-<h4>4. Synthesized speech controlled by different emotion strengths: </h4>
-<blockquote>
-<table border=1>
-<div style="text-align: justify"> Following demos are synthesized by three emotion strengths (weak, medium and strong) with the same text as input, i.e., 让那些小主顾们等一等到吧 (Let those little customers wait a while). The task is to synthesize the same emotion as the emotional reference audio (the first column) and the same speech as the target speaker's reference audio (the second column), while stably controlling the strength of emotional expression. It can be found that the proposed method can successfully enable the target speaker to express emotions of different strengths.</div>
-<tr>
-<td align="center"><span>emotion</span></td>
-<td align="center"><span>Emotion reference audio</span></td>
-<td align="center"><span>Target speaker reference audio</span></td>
-<td align="center"><span> Proposed (Weak)<span></td>
-<td align="center"><span>Proposed (Medium)<span></td>
-<td align="center"><span>Proposed (Strong)<span></td>
-</tr>
-<tr>
-<td>fear</td>                                                                                 
-<td><audio controls><source src="demo/ref_emo/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-26.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-26.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-26.wav"></audio></td>
-</tr>
-<tr>
-<td>disgust</td>                                               
-<td><audio controls><source src="demo/ref_emo/101020-25.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-25.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-25.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-25.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-25.wav"></audio></td>
-</tr>
-<tr>
-<td>angry</td>                                                                                                                    
-<td><audio controls><source src="demo/ref_emo/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-24.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-24.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-24.wav"></audio></td>
-</tr>
-<tr>
-<td>sad</td>                                                                                                                    
-<td><audio controls><source src="demo/ref_emo/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-23.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-23.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-23.wav"></audio></td>
-</tr>
-<tr>
-<td>happy</td>
-<td><audio controls><source src="demo/ref_emo/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-22.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-22.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-22.wav"></audio></td>
-</tr>
-<tr>
-<td>surprise</td>
-<td><audio controls><source src="demo/ref_emo/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/ref_spk/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/low/101020-21.wav"></audio></td>
-<td><audio controls><source src="demo/strength_spk/medium/101020-21.wav"></audio></td>           
-<td><audio controls><source src="demo/strength_spk/high/101020-21.wav"></audio></td>
 </table>
 <br/>
 </blockquote>
