@@ -16,7 +16,7 @@
 <h4>1. The architecture of the proposed model: </h4>
 <center><p><img src="multspk_emo_control_wxs.png" alt="arch" /></p> </center>
 <div style="text-align: justify">The architecture of the proposed cross-speaker model. The input text is represented as the phone sequence, and speech is represented by Mel-spectrogram which can be converted to waveform signal via a vocoder. The input ``Mel" is from reference audio to provide the speaker-independent emotion embedding via the emotion encoder. Two EDMs are just used during the training processing, and only the emotion encoder with ``Mel" as input is kept during the inference.</div>
-<h4>2. style transfer for comparison with other methods : </h4>
+<h4>2. Comparisons with other methods on the task of emotion transfer TTS: </h4>
 <blockquote>
 <table border=1>
 <div style="text-align: justify">Following demos are synthesized by different methods with  the same text as input, i.e., 让那些小主顾们等一等到吧 (Let those little customers wait a while). The task is to synthesized speech with the same emotion as that from emotion reference audio (the first column) and the same voice as that from target speaker reference audio (the second column).  It can be found that demos synthesized by Mspk-gst and Mspk-vae have obvious similarities with that of emotion reference audio. </div>
